@@ -1,0 +1,25 @@
+{{> post-info post}}
+
+{{!-- form and comments --}}
+{{#if loggedIn}}
+<div class="card">
+  <h2 class="card-header">Comment</h2>
+  <form class="card-body comment-form" id="comment-form">
+    <div>
+      <textarea id="comment" name="comment-body"></textarea>
+    </div>
+
+    <div>
+      <button type="submit" class="btn">Add A Comment</button>
+    </div>
+  </form>
+</div>
+{{/if}}
+
+{{!-- div class comments from comments.handlebars --}}
+{{> comments post.comments}}
+
+{{!-- conditionally render --}}
+{{#if loggedIn}}
+<script src="/javascript/comment.js"></script>
+{{/if}}

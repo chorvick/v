@@ -1,0 +1,22 @@
+<article class="card">
+  <h2 class="card-header">Edit Post</h2>
+  <form class="card-body edit-post-form" id="new-post-form">
+    <label for="post-title" class="form-label">Title</label>
+    <input type="text" id="post-title" name="post-title" value="{{post.title}}" />
+    <label class="form-label" for="content">Content</label>
+    <input id="content" name="content" value="{{post.content}}">
+    By you on {{format_date post.created_at}}
+    |
+    <a class="link" href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment"
+      post.comments.length}}
+    </a>
+    <button type="submit" class="btn">Save post</button>
+    <button type="button" class="delete-post-btn">Delete post</button>
+  </form>
+</article>
+
+{{> comments post.comments}}
+
+<script src="/javascript/edit-post.js"></script>
+<script src="/javascript/delete-post.js"></script>
+<script src="/javascript/comment.js"></script>

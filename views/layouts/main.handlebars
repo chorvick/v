@@ -13,38 +13,35 @@
   <link rel="stylesheet" href="/css/jass.css">
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-
-
-
-
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <div class="wrapper">
-    <header class="hero">
-      <div>
-        <nav class="nav">
-          <a class="link" href="/">Home</a>
-          <a class="link" href="/dashboard">Dashboard</a>
-          {{#if loggedIn}}
-          <a class="link" href="/" id="logout">Logout</a>
-          {{else}}
-          <a class="link" href="/login">Login</a>
-          {{/if}}
-        </nav>
-      </div>
-
-      <h1 class="blog-title">Vinyl Addict</h1>
+  <div class="nav-bar">
+    <img src="/img/header.jpg" class="img-fluid mx-auto d-block" alt="record image">
+    <header class="d-flex light justify-content-center py-3">
+      <ul class="nav nav-pills nav-fill">
+        <li class="nav-item"><a href="/" class="nav-link active">Home</a></li>
+        <li class="nav-item"><a href="/dashboard" class="nav-link">Sign up</a></li>
+        <!-- <li class="nav-item"><a href="#" class="nav-link">Log out</a></li> -->
+        {{#if loggedIn}}
+        <li class="nav-item"><a href="/" class="nav-link">Log out</a></li>
+        {{else}}
+        <li class="nav-item"><a href="/api" class="nav-link">Log in</a></li>
+        {{/if}}
+      </ul>
     </header>
-
-    <main>
-      {{{ body }}}
-    </main>
   </div>
+  
+      <main>
+        {{{ body }}}
+      </main>
 
-  {{#if loggedIn}}
-  <script src="/javascript/logout.js"></script>
-  {{/if}}
+
+      {{#if loggedIn}}
+      <script src="/javascript/logout.js"></script>
+      {{/if}}
 
 </body>
 

@@ -33,6 +33,18 @@ Post.init(
         key: 'id',
       }
     },
+    artist: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    lp: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    photo: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
 
 
   },

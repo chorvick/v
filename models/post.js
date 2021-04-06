@@ -35,14 +35,18 @@ Post.init(
     artist: {
       type: DataTypes.STRING,
       allowNull: true,
+      defaultValue: " ",
     },
     lp: {
       type: DataTypes.STRING,
       allowNull: true,
+      defaultValue: " ",
     },
     photo: {
       type: DataTypes.STRING,
       allowNull: true,
+      defaultValue: " ",
+
     },
 
 

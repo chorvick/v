@@ -123,4 +123,19 @@ router.get('/posts-comments', (req, res) => {
     });
 });
 
+router.get('/logout', (req, res) => {
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      console.log('destory')
+      res.status(204);
+      res.redirect('/')
+      // res.render('login');
+    });
+  }
+  else {
+    console.log('destory2')
+    res.status(404).end();
+  }
+});
+
 module.exports = router;

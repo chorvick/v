@@ -20,8 +20,10 @@ exports.endpoint = async (request, response) => {
     
     // Use GET parameters as search options ?album=...&size=...
     const {search} = req.query
-    const  opts = req.query
     
+    const  opts = req.query
+    console.log(search);
+    console.log(opts);
     // Search and respond with results (fallback to default if no search provided)
     response.end( JSON.stringify( await albumArt( search || artist, opts ) ) )
 }

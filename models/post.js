@@ -46,8 +46,7 @@ Post.init(
     photo: {
       type: DataTypes.STRING,
       allowNull: true,
-      defaultValue: " ",
-    }
+    },
   },
   {
     sequelize,

@@ -73,22 +73,17 @@ router.get('/:id', (req, res) => {
 });
 
 // create new post
+router.post('/', withAuth, async (req, res) => {
+  console.log(req.body)
 
-router.post('/', withAuth, (req, res) => {
-  // console.log(req.body)
-//  const album = albumArt(req.body.aritst).catch(err => {
-//   return ""
+  let url = '';
+  await albumArt(req.body.artist, { album: req.body.lp }, function (err, res) {
+    url = res;
+    console.log('error: ', err)
+    console.log('response: ', res)
+  })
+  console.log(url);
 
-//   })
-// const searchArtist = req.body.artist;
-// const searchlp = req.body.lp;
-// const searchArtistString = searchArtist.toString();
-// const searchLpString = searchlp.toString();
-//   const album = albumArt(searchArtistString, searchLpString, function (err, res) {
-//     console.log('error: ', err)
-//     console.log('response: ', res)
-//   })
-  
 
 
   Post.create({
@@ -97,19 +92,7 @@ router.post('/', withAuth, (req, res) => {
     user_id: req.session.user_id,
     artist: req.body.artist,
     lp: req.body.lp,
-    // photo: album.length ? photourl : "/img/comingsoon.jpg"
-    photo: "/img/comingsoon.jpg"
-  })
-
-
-  Post.create({
-    title: req.body.title,
-    content: req.body.content,
-    artist: req.body.artist,
-    lp: req.body.lp,
-    photo: req.body.photo,
-    user_id: req.session.user_id
-
+    photo: url.length ? url:"/img/comingsoon.jpg"
   })
     .then(dbPostData => res.json(dbPostData))
     .catch(err => {

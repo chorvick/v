@@ -75,19 +75,19 @@ router.get('/:id', (req, res) => {
 // create new post
 
 router.post('/', withAuth, (req, res) => {
-  console.log(req.body)
-  // const album = await albumArt(req.body.aritst).catch(err => {
-  //   return ""
+  // console.log(req.body)
+//  const album = albumArt(req.body.aritst).catch(err => {
+//   return ""
 
-  // })
-const searchArtist = req.body.artist;
-const searchlp = req.body.lp;
-const searchArtistString = searchArtist.toString();
-const searchLpString = searchlp.toString();
-  const album = albumArt(searchArtistString, searchLpString, function (err, res) {
-    console.log('error: ', err)
-    console.log('response: ', res)
-  })
+//   })
+// const searchArtist = req.body.artist;
+// const searchlp = req.body.lp;
+// const searchArtistString = searchArtist.toString();
+// const searchLpString = searchlp.toString();
+//   const album = albumArt(searchArtistString, searchLpString, function (err, res) {
+//     console.log('error: ', err)
+//     console.log('response: ', res)
+//   })
   
 
 
@@ -98,7 +98,7 @@ const searchLpString = searchlp.toString();
     artist: req.body.artist,
     lp: req.body.lp,
     // photo: album.length ? photourl : "/img/comingsoon.jpg"
-    photo: album
+    photo: "/img/comingsoon.jpg"
   })
 
 

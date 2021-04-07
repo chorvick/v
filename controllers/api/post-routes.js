@@ -1,11 +1,12 @@
 const router = require('express').Router();
 const { Post, User, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
+const albumArt = require('album-art')
 
 //get all posts
 router.get('/', (req, res) => {
   Post.findAll({
-    attributes: ['id', 'title', 'content', 'created_at'],
+    attributes: ['id', 'title', 'content', 'artist', 'lp', 'photo', 'created_at'],
     order: [
       ['created_at', 'DESC'],
     ],
@@ -39,7 +40,7 @@ router.get('/:id', (req, res) => {
     where: {
       id: req.params.id
     },
-    attributes: ['id', 'content', 'title', 'created_at'],
+    attributes: ['id', 'title', 'content', 'artist', 'lp', 'photo', 'created_at'],
     include: [{
       model: User,
       attributes: ['username'],
@@ -72,11 +73,19 @@ router.get('/:id', (req, res) => {
 });
 
 // create new post
-router.post('/', withAuth, (req, res) => {
+router.post('/', withAuth, async (req, res) => {
+  console.log(req.body)
+  const album = await albumArt(req.body.aritst).catch(err => {
+    return ""
+
+  })
   Post.create({
     title: req.body.title,
     content: req.body.content,
-    user_id: req.session.user_id
+    user_id: req.session.user_id,
+    artist: req.body.artist,
+    lp: req.body.lp,
+    photo: album.length ? album : "https://gph.is/g/E0peKVY"
   })
     .then(dbPostData => res.json(dbPostData))
     .catch(err => {

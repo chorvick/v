@@ -24,7 +24,7 @@ router.get('/:id', (req, res) => {
     include: [
       {
         model: Post,
-        attributes: ['id', 'title', 'content', 'created_at']
+        attributes: ['id', 'title', 'content', 'artist', 'lp', 'photo', 'created_at']
       },
       {
         model: Comment,
@@ -71,7 +71,7 @@ router.post('/', (req, res) => {
 });
 
 router.post('/login', (req, res) => {
-  // example {username: 'Lernantino, password: 'password1234'}
+
   User.findOne({
     where: {
       username: req.body.username,
@@ -103,7 +103,7 @@ router.post('/login', (req, res) => {
 
 
 router.put('/:id', (req, res) => {
-  // example {username: 'Lernantino', password: 'password1234'}
+
   User.update(req.body, {
     individualHooks: true,
     where: {

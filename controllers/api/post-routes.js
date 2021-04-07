@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Post, User, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
+const albumArt = require('album-art')
 
 //get all posts
 router.get('/', (req, res) => {
@@ -73,6 +74,33 @@ router.get('/:id', (req, res) => {
 
 // create new post
 router.post('/', withAuth, (req, res) => {
+  console.log(req.body)
+  // const album = await albumArt(req.body.aritst).catch(err => {
+  //   return ""
+
+  // })
+const searchArtist = req.body.artist;
+const searchlp = req.body.lp;
+const searchArtistString = searchArtist.toString();
+const searchLpString = searchlp.toString();
+  const album = albumArt(searchArtistString, searchLpString, function (err, res) {
+    console.log('error: ', err)
+    console.log('response: ', res)
+  })
+  
+
+
+  Post.create({
+    title: req.body.title,
+    content: req.body.content,
+    user_id: req.session.user_id,
+    artist: req.body.artist,
+    lp: req.body.lp,
+    // photo: album.length ? photourl : "/img/comingsoon.jpg"
+    photo: album
+  })
+
+
   Post.create({
     title: req.body.title,
     content: req.body.content,

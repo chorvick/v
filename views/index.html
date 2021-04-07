@@ -47,8 +47,31 @@
             </div>
           </aside>
         </div>
+{{#if posts.length}}
+<section>
+  <div class="container">
+    <div class="row mt-7">
+      <div class="col mt-5">
+        <div class="row">
+          <aside class="col-lg-10">
+              <article class="flex-md-row h-md-250">
+                <h4 class="card-title mb-4 mt-1">Your Post <i class="fas fa-music"></i> </h4>
+                {{#each posts as |post|}}
+                {{> post-info post}}
+                <div class="card">
+                  <div class="card-header">
+                    <a class="link" href="/dashboard/edit/{{post.id}}">Edit Post</a>
+                  </div>
+                </div>
+                {{/each}}
+              </section>
+             
+              </article>
+          </aside>
+        </div>
 
-   
+</section>
+{{/if}}
   
 
       <!-- JavaScript Bundle with Popper -->

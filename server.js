@@ -6,7 +6,7 @@ const helpers = require('./utils/helpers');
 // const Comment = require('./Comment');
 const app = express();
 const PORT = process.env.PORT || 3001;
-
+const albumArt = require('album-art')
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
@@ -14,7 +14,7 @@ const hbs = exphbs.create({ helpers });
 
 const sess = {
   secret: 'Super secret secret',
-  cookie: { maxAge: 240000 },
+  cookie: { maxAge: 999999999 },
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
@@ -36,5 +36,5 @@ app.use(require('./controllers/'));
 
 // turn on connection to db and server
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening'));
+  app.listen(PORT, () => console.log(`Now listening on Port: ${PORT}`));
 });

@@ -6,7 +6,7 @@ const albumArt = require('album-art')
 //get all posts
 router.get('/', (req, res) => {
   Post.findAll({
-    attributes: ['id', 'title', 'content', 'created_at'],
+    attributes: ['id', 'title', 'content', 'artist', 'lp', 'photo', 'created_at'],
     order: [
       ['created_at', 'DESC'],
     ],
@@ -40,7 +40,7 @@ router.get('/:id', (req, res) => {
     where: {
       id: req.params.id
     },
-    attributes: ['id', 'content', 'title', 'created_at'],
+    attributes: ['id', 'title', 'content', 'artist', 'lp', 'photo', 'created_at'],
     include: [{
       model: User,
       attributes: ['username'],
@@ -73,6 +73,7 @@ router.get('/:id', (req, res) => {
 });
 
 // create new post
+
 router.post('/', withAuth, (req, res) => {
   // console.log(req.body)
 //  const album = albumArt(req.body.aritst).catch(err => {
@@ -108,6 +109,7 @@ router.post('/', withAuth, (req, res) => {
     lp: req.body.lp,
     photo: req.body.photo,
     user_id: req.session.user_id
+
   })
     .then(dbPostData => res.json(dbPostData))
     .catch(err => {

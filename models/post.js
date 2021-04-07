@@ -34,18 +34,20 @@ Post.init(
     },
     artist: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
+      defaultValue: " ",
     },
     lp: {
+
       type: DataTypes.TEXT,
       allowNull: false,
+
     },
     photo: {
       type: DataTypes.STRING,
-      allowNull: false,
-    },
-
-
+      allowNull: true,
+      defaultValue: " ",
+    }
   },
   {
     sequelize,

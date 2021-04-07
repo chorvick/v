@@ -73,19 +73,43 @@ router.get('/:id', (req, res) => {
 });
 
 // create new post
-router.post('/', withAuth, async (req, res) => {
-  console.log(req.body)
-  const album = await albumArt(req.body.aritst).catch(err => {
-    return ""
 
+router.post('/', withAuth, (req, res) => {
+  console.log(req.body)
+  // const album = await albumArt(req.body.aritst).catch(err => {
+  //   return ""
+
+  // })
+const searchArtist = req.body.artist;
+const searchlp = req.body.lp;
+const searchArtistString = searchArtist.toString();
+const searchLpString = searchlp.toString();
+  const album = albumArt(searchArtistString, searchLpString, function (err, res) {
+    console.log('error: ', err)
+    console.log('response: ', res)
   })
+  
+
+
   Post.create({
     title: req.body.title,
     content: req.body.content,
     user_id: req.session.user_id,
     artist: req.body.artist,
     lp: req.body.lp,
-    photo: album.length ? album : "https://gph.is/g/E0peKVY"
+    // photo: album.length ? photourl : "/img/comingsoon.jpg"
+    photo: album
+  })
+
+
+  Post.create({
+    title: req.body.title,
+    content: req.body.content,
+    artist: req.body.artist,
+    lp: req.body.lp,
+    photo: req.body.photo,
+    user_id: req.session.user_id
+
   })
     .then(dbPostData => res.json(dbPostData))
     .catch(err => {

@@ -1,38 +1,63 @@
-<section class="card">
-  <h2 class="card-header">Create New Post</h2>
 
-  <form class="card-body new-post-form" id="new-post-form">
-    <label for="post-title" class="form-label">Title</label>
+  <div class="container">
+    <div class="row mt-5">
+      <div class="col mt-5">
+        <div class="row">
+          <aside class="col-lg-4">
+            <div class="card">
+              <article class="card-body">
+                <h4 class="card-title mb-4 mt-1"><i class="fas fa-music"></i>New Post <i class="fas fa-music"></i> </h4>
+                <form class="form login-form">
+                        <div class="form-group">
+                    <label>Post Title</label>
+                    <input id="title" class="form-control" placeholder="My Awesome Post" type="text">
+                  </div>
+                  <div class="form-group">
+                    <label>Artist Name</label>
+                    <input id="artist-name" class="form-control" placeholder="Ozzy Osborne" type="text">
+                  </div>
+                  <div class="form-group">
+                    <label>Album Title</label>
+                    <input id="album-title" class="form-control" placeholder="Crazy Train" type="text">
+                  </div>
+                  <div class="form-group">
+                    <label>Tell Your Story</label>
+                    <input id="content" class="form-control input-lg" type="text">
+                    <span class="text-muted">Tell everyone who, what, where, and why, this music is special to you.</span>
+                  </div>
+                  <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block mx-auto">Submit Post</button>
+                  </div>
+                </form>
+              </article>
+            </div>
+          </aside>
+        </div>
 
-
-    <input type="text" id="post-title" name="post-title" />
-    <label class="form-label" for="content">Content</label>
-    <input id="content" name="content" />
-
-
-    <label class="form-label" for="artist">Artist</label>
-    <input type="text" id="artist" name="artist" />
-
-
-    <label class="form-label" for="lp">LP</label>
-    <input type="text" id="lp" name="lp" />
-
-    <button type="submit" class="btn">Submit New Post</button>
-  </form>
-</section>
 
 {{#if posts.length}}
 <section>
-  <h2>Your Posts</h2>
-  {{#each posts as |post|}}
-  {{> post-info post}}
-  <div class="card">
-    <div class="card-header">
+  <div class="container">
+    <div class="row mt-7">
+      <div class="col mt-5">
+        <div class="row">
+          <aside class="col-lg-10">
+              <article class="flex-md-row h-md-250">
+                <h4 class="card-title mb-4 mt-1">Your Post <i class="fas fa-music"></i> </h4>
+                {{#each posts as |post|}}
+                {{> post-info post}}
+                <div class="card">
+                  <div class="card-header">
+                    <a href="/dashboard/edit/{{post.id}}" class="btn btn-primary mx-auto">Edit Post</a>
+                    {{!-- <a class="link" href="/dashboard/edit/{{post.id}}">Edit Post</a> --}}
+                  </div>
+                </div>
+                {{/each}}
+              </section>
+              </article>
+          </aside>
+        </div>
 
-      <a class="link" href="/dashboard/edit/{{post.id}}">Edit Post</a>
-    </div>
-  </div>
-  {{/each}}
 </section>
 {{/if}}
 

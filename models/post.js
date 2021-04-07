@@ -38,9 +38,10 @@ Post.init(
       defaultValue: " ",
     },
     lp: {
-      type: DataTypes.STRING,
-      allowNull: true,
-      defaultValue: " ",
+
+      type: DataTypes.TEXT,
+      allowNull: false,
+
     },
     photo: {
       type: DataTypes.STRING,

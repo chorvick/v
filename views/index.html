@@ -12,6 +12,7 @@
     integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
   <link rel="stylesheet" href="./public/style.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
   <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap" rel="stylesheet">
 </head>
 
@@ -20,10 +21,10 @@
     <div class="row mt-5">
       <div class="col mt-5">
         <div class="row">
-          <aside class="col-lg-6">
+          <aside class="col-lg-4">
             <div class="card">
               <article class="card-body">
-                <h4 class="card-title mb-4 mt-1">New Post</h4>
+                <h4 class="card-title mb-4 mt-1">New Post <i class="fas fa-music"></i> </h4>
                 <form class="form login-form">
                   <div class="form-group">
                     <label>Artist Name</label>
@@ -34,19 +35,43 @@
                     <input id="album-title" class="form-control" placeholder="Crazy Train" type="text">
                   </div>
                   <div class="form-group">
-                    <label>Content</label>
-                    <input id="content" class="form-control" type="text" rows="3">
+                    <label>Tell Your Story</label>
+                    <input id="content" class="form-control input-lg" type="text">
+                    <span class="text-muted">Tell everyone who, what, where, and why, this music is special to you.</span>
                   </div>
                   <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-block">Login</button>
+                    <button type="submit" class="btn btn-primary btn-block mx-auto">Submit Post</button>
                   </div>
                 </form>
               </article>
             </div>
           </aside>
         </div>
+{{#if posts.length}}
+<section>
+  <div class="container">
+    <div class="row mt-7">
+      <div class="col mt-5">
+        <div class="row">
+          <aside class="col-lg-10">
+              <article class="flex-md-row h-md-250">
+                <h4 class="card-title mb-4 mt-1">Your Post <i class="fas fa-music"></i> </h4>
+                {{#each posts as |post|}}
+                {{> post-info post}}
+                <div class="card">
+                  <div class="card-header">
+                    <a class="link" href="/dashboard/edit/{{post.id}}">Edit Post</a>
+                  </div>
+                </div>
+                {{/each}}
+              </section>
+             
+              </article>
+          </aside>
+        </div>
 
-   
+</section>
+{{/if}}
   
 
       <!-- JavaScript Bundle with Popper -->

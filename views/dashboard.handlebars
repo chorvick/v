@@ -46,6 +46,7 @@
                 <h4 class="card-title mb-4 mt-1">Your Post <i class="fas fa-music"></i> </h4>
                 {{#each posts as |post|}}
                 {{> post-info post}}
+                <img src="{{post.photo}}">
                 <div class="card">
                   <div class="card-header">
                     <a href="/dashboard/edit/{{post.id}}" class="btn btn-primary mx-auto">Edit Post</a>

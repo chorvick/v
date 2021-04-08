@@ -7,16 +7,14 @@ async function newFormHandler(event) {
   const content = document.querySelector('#content').value;
 
 
-
-
-
   const response = await fetch(`/api/posts`, {
     method: 'POST',
     body: JSON.stringify({
       title,
       artist,
       lp,
-      content
+      content,
+      photo
     }),
     headers: {
       'Content-Type': 'application/json'

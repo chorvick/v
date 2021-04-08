@@ -5,7 +5,7 @@ async function newFormHandler(event) {
   const artist = document.querySelector('#artist-name').value;
   const lp = document.querySelector('#album-title').value;
   const content = document.querySelector('#content').value;
-
+  var photo = '';
 
   const response = await fetch(`/api/posts`, {
     method: 'POST',

@@ -1,6 +1,6 @@
 async function deleteFormHandler(event) {
   event.preventDefault();
-
+  var photo = '';
   const id = window.location.toString().split('/')[
     window.location.toString().split('/').length - 1
   ];

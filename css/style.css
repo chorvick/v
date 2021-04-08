@@ -1,0 +1,68 @@
+html {
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.nav-bar{
+  background-color: black;
+}
+
+body::after {
+  content: "";
+  background: url('/img/records.jpeg');
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.card {
+  background-image: url('/img/records.jpeg');
+  background-color: rgba(245, 245, 245, 1);
+  text-align: center;
+  float:center;
+  padding-right: 0;
+  margin-right: 0;
+  position:relative ;
+  left: 50%;
+  text-shadow: 5px 5px 5px 5px gray;
+}
+
+h4, label {
+  color: #EE82EE;
+}
+.btn {
+  box-shadow: 0 3px 0 0 #007299;
+  color: #EE82EE !important
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+  background-color: #8064A2 !important;
+}
+
+input[type=text] {
+  background-color: #C0C0C0 !important
+}
+
+
+input[type=password] {
+  background-color: #C0C0C0 !important
+}
+
+
+
+
+
+
+  /* .nav-pills .nav-link:not(.active) {
+    background-color: #b28dc0;
+    color: white;
+} */
+
+
+

@@ -4,7 +4,7 @@
       <div class="col mt-5">
         <div class="row">
           <aside class="col-lg-4">
-            <div class="card">
+            <div id="post-card" class="card">
               <article class="card-body">
                 <h4 class="card-title mb-4 mt-1"><i class="fas fa-music"></i>New Post <i class="fas fa-music"></i> </h4>
                 <form class="form login-form">
@@ -37,19 +37,19 @@
 
 {{#if posts.length}}
 <section>
-  <div class="container">
+  <div id= "your-post" class="container">
     <div class="row mt-7">
       <div class="col mt-5">
         <div class="row">
           <aside class="col-lg-10">
-              <article class="flex-md-row h-md-250">
+              <article id="article-center" class="flex-md-row h-md-250">
                 <h4 class="card-title mb-4 mt-1">Your Post <i class="fas fa-music"></i> </h4>
                 {{#each posts as |post|}}
                 {{> post-info post}}
                 <img src="{{post.photo}}">
                 <div class="card">
                   <div class="card-header">
-                    <a href="/dashboard/edit/{{post.id}}" class="btn btn-primary mx-auto">Edit Post</a>
+                    <a href="/dashboard/edit/{{post.id}}" id="click" class="btn btn-primary mx-auto">Edit Post</a>
                   </div>
                 </div>
                 {{/each}}

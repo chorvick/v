@@ -8,10 +8,6 @@ async function newFormHandler(event) {
 
 
 
-  const title = document.querySelector('input[name="post-title"]').value;
-  const content = document.querySelector('input[name="content"]').value;
-  const artist = document.querySelector('input[name="artist"]').value;
-  const lp = document.querySelector('input[name="lp"]').value;
 
 
   const response = await fetch(`/api/posts`, {

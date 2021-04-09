@@ -15,33 +15,35 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 </head>
 
 <body>
   <div class="nav-bar">
-    <img src="/img/header.jpg" class="img-fluid mx-auto d-block" alt="record image">
+    <img src="https://raw.githubusercontent.com/chorvick/v/main/public/img/Header.jpg" class="img-fluid mx-auto d-block"
+      alt="record image">
     <header class="d-flex light justify-content-center py-3">
       <ul class="nav nav-pills nav-fill">
         <li class="nav-item"><a href="/" class="nav-link active">Home</a></li>
         {{#if loggedIn}}
         <li class="nav-item"><a href="/logout" class="nav-link">Log out</a></li>
         {{else}}
-         <li class="nav-item"><a href="/signup" class="nav-link">Sign up</a></li>
-         <li class="nav-item"><a href="/login" class="nav-link">Log in</a></li>
+        <li class="nav-item"><a href="/signup" class="nav-link">Sign up</a></li>
+        <li class="nav-item"><a href="/login" class="nav-link">Log in</a></li>
         {{/if}}
       </ul>
     </header>
   </div>
-  
-      <main>
-        {{{ body }}}
-      </main>
+
+  <main>
+    {{{ body }}}
+  </main>
 
 
-      {{#if loggedIn}}
-      <script src="/javascript/logout.js"></script>
-      {{/if}}
+  {{#if loggedIn}}
+  <script src="/javascript/logout.js"></script>
+  {{/if}}
 
 </body>
 

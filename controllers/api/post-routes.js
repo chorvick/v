@@ -92,7 +92,7 @@ router.post('/', withAuth, async (req, res) => {
     user_id: req.session.user_id,
     artist: req.body.artist,
     lp: req.body.lp,
-    photo: url.length ? url:"/img/comingsoon.jpg"
+    photo: url.length ? url:"https://user-images.githubusercontent.com/9003865/114275582-20b78c00-99f1-11eb-9aad-b49be1dd2b40.jpg"
   })
     .then(dbPostData => res.json(dbPostData))
     .catch(err => {

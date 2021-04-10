@@ -2,6 +2,11 @@
   background-color: black;
 }
 
+.imageborder {
+  border: 2px solid rgb(135, 98, 149) !important;
+}
+
+
 /* .nav-pills .nav-link:not(.active) {
     background-color: #b28dc0;
     color: white;

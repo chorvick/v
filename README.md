@@ -4,7 +4,7 @@
 
 ## Description
 
-Our Vinyl Addict application is meant for each and every music lover. Try it [here](https://salty-harbor-76521.herokuapp.com) This app allows our music fanbase, whether you are a "newer" music fan or a hardcore music lover, to share their collection of vinyl LPs with the rest of the community. Not only can you share what albums you have, but you can also boast about that new found vinyl you came across at a local swap meet or garage sale. Along with that, you can also comment on other community members posts.
+Our Vinyl Addict application is meant for each and every music lover. Try it on [Heroku](https://salty-harbor-76521.herokuapp.com) or on [Fly io](https://salty-harbor-76521.fly.dev/) This app allows our music fanbase, whether you are a "newer" music fan or a hardcore music lover, to share their collection of vinyl LPs with the rest of the community. Not only can you share what albums you have, but you can also boast about that new found vinyl you came across at a local swap meet or garage sale. Along with that, you can also comment on other community members posts.
 
 ## Table of Contents
 
